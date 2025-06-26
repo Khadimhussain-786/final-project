@@ -30,9 +30,12 @@ class HomeControllers extends Controller
         $category = Category::where('parent_id',$id)->where('parent_id','!=',0)->get();
          return $category;
     }
+ 
+    public function send_advert2(Request $request){
+       $id = $request->id;
+       $category = Category::find($id);
 
-    public function catmenus(Request $request){
-
+       return $category;
 
     }
 }

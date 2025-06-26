@@ -27,7 +27,9 @@ class CategoryControllers extends Controller
             return redirect('/admin/category');
     }
 
-    public function getcatagory(){
-       return Category::all();
-    }
+        public function getcatagory()
+        {
+        return Category::where('parent_id', 0)->get();
+        }
+
 }

@@ -1,19 +1,25 @@
-// ابتدا jQuery را وارد کرده و به window اضافه کن
+
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 
-// سپس bootstrap را بعد از jQuery لود کن
+
 import 'bootstrap';
 
 import Swal from 'sweetalert2';
 
-// سپس Vue را ایمپورت کن
+
 import Vue from 'vue/dist/vue.js';
 import axios from 'axios';
 import { compileString } from 'sass';
 import { create } from 'lodash';
 
-// حالا Vue app را بساز
+/********dropzon*******/
+
+import Dropzone from "dropzone";
+import "dropzone/dist/dropzone.css";
+
+Dropzone.autoDiscover = false;
+
 const app = new Vue({
     el: '#app',
     data: {
@@ -23,17 +29,47 @@ const app = new Vue({
         categorys:[],
         advertcat:[],
         showSecondUl: false,
-        showThirdUl: false,
+        // showThirdUl: false,
+        showSendAdvert3: false,
         submenus:[],
         menu:[],
         submenuSelectedId: null,
         submenuSelectedName: '',
+        category:"",
+        submenuSelected: {},
     },
 
-      mounted(){
+      mounted() {
+    this.gedcategory();
+    },
 
-             this.gedcategory();
-      },
+    watch: {
+    showSendAdvert3(newVal) {
+        if (newVal) {
+            this.$nextTick(() => {
+                Dropzone.autoDiscover = false;
+
+                const dropzoneElement = document.getElementById("my-dropzone");
+
+                if (dropzoneElement && !dropzoneElement.dropzone) {
+                    new Dropzone(dropzoneElement, {
+                        url: "/upload", // اگر backend داری
+                        maxFiles: 5,
+                                acceptedFiles: "image/*",
+                                dictDefaultMessage: "فایل‌ها را اینجا بکشید یا کلیک کنید",
+                                init: function () {
+                                    this.on("success", function (file, response) {
+                                        console.log("فایل آپلود شد", response);
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+        }
+        ,
+
 
     methods: {
 
@@ -53,8 +89,22 @@ const app = new Vue({
 
 
        /*********send_advert2********/
-              send_advert2: function(){
+              send_advert2: function(id){
+
+                   axios.post('/send_advert2',{
+                id: id
+
+                }).then(Response=>{
+                    this.category=Response.data;
+                     $('.send-advert1').hide();
+                     $('.send-advert2').hide();
+                     $('#card').hide();
+                     $('.send-advert3').show();
+                     this.showSendAdvert3=true;
+                    // this.showSecondUl = true;
+                },Response=>{
                    
+                })
               },
 
         /********subcat********/
@@ -64,6 +114,8 @@ const app = new Vue({
                     if (selected) {
                         this.submenuSelectedId = id;
                         this.submenuSelectedName = selected.name;
+                        this.submenuSelected = id;
+                          this.submenuSelected = this.submenus.find(item => item.id === id);
                     }
                 axios.post('/subcats',{
                 id: id
@@ -71,6 +123,7 @@ const app = new Vue({
                 }).then(Response=>{
                     this.menu=Response.data;
                      $('.send-advert1').hide();
+                      $('.send-advert3').hide();
                     // this.showSecondUl = true;
                 },Response=>{
                    
@@ -90,6 +143,7 @@ const app = new Vue({
             }).then(Response=>{
                  this.advertcat=Response.data;
                  $('.send-advert').hide();
+                 $('.send-advert3').hide();
                  this.showSecondUl = true;
             },Response=>{
   
@@ -189,4 +243,5 @@ const app = new Vue({
             })
         }
     }
+
 });

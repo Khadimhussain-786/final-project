@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/dropzone.min.css') }}">
     
 
     <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.css') }}">
@@ -24,9 +26,11 @@
 
           
 
-  <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <script src="{{ asset('js/dropzone.min.js') }}"></script>
 
 </body>
 </html>
