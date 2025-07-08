@@ -325,3 +325,77 @@ header{
     right: 105px;
     font-size: 16px;
 }
+
+/*******manage ********/
+.progress-manage{
+    margin: 0 auto;
+    width: 46%;
+    position: absolute;
+    left: 30%;
+    margin-top: 60px;
+    display: block !important;
+    overflow: visible;
+    box-shadow: none !important;
+    height: 15px;
+}
+.progress-manage ul li{
+    float: right;
+    width: 25%;
+}
+.progress-manage ul li .progress{
+    height: 3px !important;
+    border-radius: 0 !important;
+   
+}
+.circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    float: right;
+    margin-top: -32px;
+}
+.progress{
+ background-color: transparent !important ;
+}
+
+.manage-text{
+    position: absolute;
+    width: 49%;
+    right: 19%;
+    font-size: 15px;
+    top: 31%;
+    text-align: center;
+}
+
+.nav-tabs{
+    position: absolute;
+    float: right;
+    direction: rtl;
+    right: 0;
+    top: 69%;
+    width: 100%;
+    font-size: 15px;
+}
+
+.tab-content{
+   position: absolute;
+   float: right;
+   direction: rtl;
+   right: 0;
+   top: 80%;
+   width: 100%;
+}
+
+.content{
+    width: 90%;
+}
+
+.content .right{
+    width: 60%;
+    float: right;
+}
+.content .left{
+    width: 40%;
+    float: left;
+}
+

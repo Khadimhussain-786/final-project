@@ -41,13 +41,37 @@
 
                         <div class="card" style="min-height:400px;margin-top: 15px; text-align:right;padding-top:15px;font-size: 15px;">
                          
-                            <span v-if="submenuSelected.parent_id ==3">
-                          @include("layouts.FormAdvert.StatefForm")
+                               <!-- <span v-if="submenuSelected.parent_id ==1">
+                               @include("layouts.CarsForm.CarsForm")
+                            </span >
+                             <span v-else-if="submenuSelected.parent_id ==3">
+                               @include("layouts.FormAdvert.StateForm")
                             </span>
+                              <span v-else>
+                               @include("layouts.PublicForm.PublicForm")
+                            </span > -->
 
-                        </ul>
+                               
+                           
+                              <template v-if="submenuSelected && submenuSelected.parent_id !== null">
 
-   </div>
+                             
+                                 <div v-if="parseInt(submenuSelected.parent_id) === 1">
+                                    @include("layouts.CarsForm.CarsForm")
+                                 </div>
+                                 <div v-else-if="parseInt(submenuSelected.parent_id) === 3">
+                                    @include("layouts.FormAdvert.StateForm")
+                                 </div>
+                                 <div v-else>
+                                    @include("layouts.PublicForm.PublicForm")
+                                 </div>
+
+                              </template>
+
+
+                            </ul>
+
+                       </div>
 </div>
 
 @endsection
