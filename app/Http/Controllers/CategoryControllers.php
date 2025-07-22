@@ -29,7 +29,8 @@ class CategoryControllers extends Controller
 
         public function getcatagory()
         {
-        return Category::where('parent_id', 0)->get();
+        // return Category::where('parent_id', 0)->get();
+        return Category::all();
         }
 
 }

@@ -8,6 +8,7 @@
                 <h3>اضافه کردن دسته</h3>
             </div>
             <div class="custom-panel-body">
+
                 
                
                 <div class="form-group mb-4">
@@ -18,10 +19,9 @@
 
                            <option v-for="category in categorys" :value="category.id">@{{ category.name }}</option>
             
-                                    <!-- @foreach ($category as $categories)
-                                        <option value="{{ $categories->id }}">{{ $categories->name }}</option>
-                                    @endforeach
-                                       -->
+
+
+                                      
                         </select>
                         <button class="btn btn-danger w-100 mt-2" @click="deleteCategory()">حذف دسته</button>
                      </div>
@@ -41,12 +41,9 @@
                                       <option v-for="category in categorys" :value="category.id">@{{ category.name }}</option>
             
 
-                                    <!-- @foreach ($category as $categories)
-                                        <option value="{{ $categories->id }}">{{ $categories->name }}</option>
-                                    @endforeach
-                                         -->
+                                        
                             </select>
-                            <button class="btn btn-info w-100 mt-2" style="left: 0;" @click="addCategory()" >ذخیره زیر دسته</button>
+                            <button class="btn btn-info w-100 mt-2" style="left: 0;" @click="addCategory()" >ذخیره دسته</button>
                       </div>
                         
                 </div>

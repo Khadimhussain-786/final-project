@@ -7,6 +7,8 @@ use App\Models\Estate;
 use App\Models\Advert;
 use App\Models\Image;
 use App\Models\Car;
+use Hekmatinasser\Verta\Facades\Verta;
+ 
 use Illuminate\Support\Facades\Redirect;
 
 class AdvertControllers extends Controller
@@ -25,6 +27,8 @@ class AdvertControllers extends Controller
                     $advert->text = $request->description;
                     $advert->type = $request->adType;
                     $advert->category_id = $request->catagory;
+
+                    $advert->date = verta();
 
                     if (!$advert->save()) {
                         return response()->json(['message' => 'خطا در ذخیره آگهی'], 500);
@@ -104,7 +108,7 @@ class AdvertControllers extends Controller
                                 }
                             }
 
-           public function addcares(Request $request)
+      public function addcares(Request $request)
                         {
                             try {
                                 // 1. ذخیره آگهی
@@ -118,6 +122,7 @@ class AdvertControllers extends Controller
                                 $advert->text = $request->text;
                                 $advert->type = $request->adType;
                                 $advert->category_id = $request->category_id;
+                                $advert->date = verta();
 
                                 if (!$advert->save()) {
                                     return response()->json(['message' => 'خطا در ذخیره آگهی'], 500);
@@ -194,23 +199,24 @@ class AdvertControllers extends Controller
                                 $advert->mobile = $request->mobile;
                                 $advert->chat = $request->chat;
                                 $advert->maker = $request->maker;
+                                $advert->price = $request->price;
                                 $advert->noemail = $request->noemail ? 1 : 0;
                                 $advert->subject = $request->subject;
                                 $advert->text = $request->text;
                                 $advert->type = $request->adType;
                                 $advert->category_id = $request->category_id;
+                                $advert->date = verta();
 
                                 if (!$advert->save()) {
                                     return response()->json(['message' => 'خطا در ذخیره آگهی'], 500);
                                 }
 
-                                // بررسی تصاویر
+                                
                                 if (!$request->has('images')) {
-                                    $advert->delete(); // اگر تصویر نیست، آگهی را هم حذف کن
+                                    $advert->delete(); 
                                     return response()->json(['message' => 'تصاویری دریافت نشد'], 400);
                                 }
 
-                                // ذخیره تصاویر
                                 $imageString = implode(',', $request->images);
 
                                 $image = new Image();
@@ -218,7 +224,7 @@ class AdvertControllers extends Controller
                                 $image->advert_id = $advert->id;
 
                                 if (!$image->save()) {
-                                    $advert->delete(); // اگر تصویر ذخیره نشد، آگهی را پاک کن
+                                    $advert->delete(); 
                                     return response()->json(['message' => 'خطا در ذخیره تصاویر'], 500);
                                 }
 

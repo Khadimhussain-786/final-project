@@ -64,7 +64,7 @@
 
  </div>
 
- <!-- Modal -->
+ <!-- Modal city -->
 <div class="modal fade" id="exampleModal" style="direction: rtl;" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content" style="height: 217px;">

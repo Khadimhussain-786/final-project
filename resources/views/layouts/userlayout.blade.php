@@ -19,10 +19,13 @@
 <body>
 
 
-    @include('layouts.header.header')
+
 
     <div id="app">
+        @include('layouts.header.header')
+
         @yield('content')   
+        
     </div>
 
 
@@ -33,6 +36,78 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <!-- myapp_script -->
+
+        <script>
+                function goToStep2() {
+                    const mobile = document.getElementById('mobile').value.trim();
+
+                    
+                    if (!mobile || mobile.length < 9) {
+                    alert('لطفاً شماره موبایل معتبر وارد کنید.');
+                    return;
+                    }
+
+
+                    const regex = /^[0-9]+$/;
+                    if (!regex.test(mobile)) {
+                    alert('شماره موبایل فقط باید شامل عدد باشد.');
+                    return;
+                    }
+                    
+                    document.getElementById('step1').classList.add('d-none');
+                    document.getElementById('step2').classList.remove('d-none');
+                    document.getElementById('showMobile').innerText = '+93' + mobile;
+                }
+
+                function backToStep1() {
+                    document.getElementById('step2').classList.add('d-none');
+                    document.getElementById('step1').classList.remove('d-none');
+                }
+        </script>
+
+   <!-- chat_script -->
+
+        <script>
+            function goToStep2Login() {
+                const mobileInput = document.querySelector('#loginContainer #mobile');
+                const step1 = document.querySelector('#loginContainer #step1');
+                const step2 = document.querySelector('#loginContainer #step2');
+                const showMobile = document.querySelector('#loginContainer #showMobile');
+
+                if (!mobileInput || !step1 || !step2 || !showMobile) {
+                    console.warn("عناصر مورد نظر یافت نشدند");
+                    return;
+                }
+
+                const mobile = mobileInput.value.trim();
+                if (!mobile || mobile.length < 9) {
+                    alert('لطفاً شماره موبایل معتبر وارد کنید.');
+                    return;
+                }
+
+                const regex = /^[0-9]+$/;
+                if (!regex.test(mobile)) {
+                    alert('شماره موبایل فقط باید شامل عدد باشد.');
+                    return;
+                }
+
+                step1.classList.add('d-none');
+                step2.classList.remove('d-none');
+                showMobile.innerText = '+93' + mobile;
+            }
+
+            function backToStep1Login() {
+                const step1 = document.querySelector('#loginContainer #step1');
+                const step2 = document.querySelector('#loginContainer #step2');
+
+                if (step1 && step2) {
+                    step2.classList.add('d-none');
+                    step1.classList.remove('d-none');
+                }
+            }
+        </script>
 
 
 

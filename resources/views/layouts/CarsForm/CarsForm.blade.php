@@ -1,18 +1,43 @@
 
-         <div class="col-lg-12" style="float: right;">
+        
+        
+        <div class="col-lg-12" style="float: right;">
                               <div class="col-lg-6" style="float: right;">
                                 <div class="form-group">
                                       <label for="" >شهر</label>
-                                      <select id="" class="form-control" v-model="city" name="city">
-                                          <option value="Select"></option>
-                                          <option value="کابل">کابل</option>
-                                          <option value="هرات">هرات</option>
-                                          <option value="غزنی">غزنی</option>
-                                          <option value="مزار شریف">مزار شریف</option>
-                                          <option value="قندهار">قندهار</option>
-                                          <option value="میدان وردک">میدان وردک</option>
-                                          <option value="بامیان">بامیان</option>
-                                      </select>
+                                        <select class="form-control" v-model="city" name="city">
+                                            <option value="">انتخاب کنید</option>
+                                            <option value="کابل">کابل</option>
+                                            <option value="هرات">هرات</option>
+                                            <option value="قندهار">قندهار</option>
+                                            <option value="بلخ">بلخ</option>
+                                            <option value="ننگرهار">ننگرهار</option>
+                                            <option value="بدخشان">بدخشان</option>
+                                            <option value="پروان">پروان</option>
+                                            <option value="بغلان">بغلان</option>
+                                            <option value="غزنی">غزنی</option>
+                                            <option value="پکتیا">پکتیا</option>
+                                            <option value="پکتیکا">پکتیکا</option>
+                                            <option value="خوست">خوست</option>
+                                            <option value="لوگر">لوگر</option>
+                                            <option value="سمنگان">سمنگان</option>
+                                            <option value="سرپل">سرپل</option>
+                                            <option value="دایکندی">دایکندی</option>
+                                            <option value="بامیان">بامیان</option>
+                                            <option value="فاریاب">فاریاب</option>
+                                            <option value="جوزجان">جوزجان</option>
+                                            <option value="میدان وردک">میدان وردک</option>
+                                            <option value="نورستان">نورستان</option>
+                                            <option value="کنر">کنر</option>
+                                            <option value="لغمان">لغمان</option>
+                                            <option value="هلمند">هلمند</option>
+                                            <option value="زابل">زابل</option>
+                                            <option value="نیمروز">نیمروز</option>
+                                            <option value="فراه">فراه</option>
+                                            <option value="بدغیس">بدغیس</option>
+                                            <option value="کاپیسا">کاپیسا</option>
+                                            <option value="پنچشیر">پنچشیر</option>
+                                        </select>
                                 </div>
                               </div>
 
@@ -100,22 +125,22 @@
                               </div>
 
 
-                                <div class="col-lg-4" style="float: right;margin-top: 22px;">
-                                <div class="form-group">
-                                  <label for="">قیمت(افغانی)</label>
-                                      <select name="price" id="" class="form-control" >
-                                          <option value="0">قیمت مورد نظر</option>
-                                          <option value="1">مجانی</option>
-                                          <option value="2">توافقی(تماس بگیرید)</option>
-                                    </select>                                     
-                                </div>
-                              </div>
+                                   <div class="col-lg-4" style="float: right;margin-top: 22px;">
+                                        <div class="form-group">
+                                            <label>قیمت (افغانی)</label>
+                                            <select name="price" class="form-control" v-model="priceType">
+                                                <option value="0">قیمت مورد نظر</option>
+                                                <option value="1">مجانی</option>
+                                                <option value="2">توافقی(تماس بگیرید)</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
-                               <div class="col-lg-8" style="float: left;margin-top: 49px;">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" disabled v-model="price" name="fee" value="">
-                                </div>
-                              </div>
+                                    <div class="col-lg-8" style="float: left;margin-top: 49px;">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" :disabled="priceType != 0" v-model="price" name="fee">
+                                        </div>
+                                    </div>
 
                                  <div class="col-lg-12" style="float: right;">
                                 <div class="form-group">

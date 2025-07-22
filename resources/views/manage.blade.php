@@ -18,26 +18,45 @@ use App\Lip\Helper;
                             <div class="circle" style="background-color: green;"></div>
                             <p> ثبت شده</p>
                         </li>
-
-                        @if ($advert->status ==1)
-                            
-                        @endif
+                        
 
                         <li class="warning" style="text-align:right;">
                             <span id="progress" class="progress" style="background-color: #edb10a !important;"></span>
                             <div id="progress" class="circle" style="background-color: #edb10a;"></div>
                             <p>تایید شماره</p>
                         </li>
-                        <li class="wating" style="text-align: right;">
-                            <span id="progress" class="progress" style="background-color:#bbb !important;"></span>
-                            <div id="progress" class="circle" style="background-color: #bbb !important;"></div>
+                       
+                          
+                        @if ($advert->check==1)
+
+                         <li class="wating" style="text-align: right;">
+                            <span  class="progress" style="background-color:green !important;"></span>
+                            <div  class="circle" style="background-color: green !important;"></div>
                             <p>در اتظاره برسی </p>   
                         </li>
+
                         <li class="end" style="text-align: left;width: 3% !important;">
-                            <span class="progress" style="background-color: #bbb;"></span>
-                            <div class="circle" style="background-color: #bbb;"></div>
+                            <span id="progress" class="progress" style="background-color: green;"></span>
+                            <div id="progress" class="circle" style="background-color: green;"></div>
                             <p> انتشار</p>    
                         </li>
+ 
+                            @else
+                         <li class="wating" style="text-align: right;">
+                            <span id="progress" class="progress" style="background-color:#bbb ;"></span>
+                            <div id="progress" class="circle" style="background-color: #bbb ;"></div>
+                            <p>در اتظاره برسی </p>   
+                         </li>
+
+                         <li class="end" style="text-align: left;width: 3% !important;">
+                            <span id="progress" class="progress" style="background-color: #bbb;"></span>
+                            <div id="progress" class="circle" style="background-color: #bbb;"></div>
+                            <p> انتشار</p>    
+                         </li>
+
+                        @endif
+
+                        
                     </ul>
 
             </div>
@@ -61,20 +80,20 @@ use App\Lip\Helper;
 
             <!-- Nav tab -->
 
-           <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#home">پیش نمایش</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/edit/{{$category_id}}/{{$id}}">ویرایش</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#menu2">ارتقا</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#menu3">حذف</a>
-                </li>
-            </ul>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#home">پیش نمایش</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/edit/{{$category_id}}/{{$id}}">ویرایش</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#menu2">ارتقا</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#menu3">حذف</a>
+            </li>
+        </ul>
 
 
             <!-- tab panes -->
@@ -113,8 +132,7 @@ use App\Lip\Helper;
                                 </div>
                             </div>
                     
-
-                        
+                            
                             <div class="col-lg-7" style="margin-right: 30px; margin-top:10px;float:right; font-size:15px;">
                                 <div class="card" style="text-align: right; padding-right:16px; padding-top:21px;">
                                     <div class="header" style="border-bottom: 1px solid #000; padding-bottom: 7px; margin-left:10px;">توضحات</div>
@@ -176,10 +194,10 @@ use App\Lip\Helper;
             @if ($advert->status == 1)
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
-                        // پنهان کردن کادر وارد کردن کد
+                        
                         document.querySelector('.manage-text').style.display = 'none';
 
-                        // تغییر رنگ دایره‌ها و span‌ها
+                      
                         document.querySelectorAll('.warning #progress').forEach(el => el.style.backgroundColor = 'green');
                         document.querySelectorAll('.wating #progress').forEach(el => el.style.backgroundColor = '#edb10a');
                     });

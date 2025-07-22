@@ -2,20 +2,46 @@
          <div class="col-lg-12" style="float: right;">
                               <div class="col-lg-6" style="float: right;">
                                 <div class="form-group">
-                                      <label for="" >شهر</label>
-                                      <select id="" class="form-control" v-model="city" name="city">
-                                          <option value="Select"></option>
-                                          <option value="کابل">کابل</option>
-                                          <option value="هرات">هرات</option>
-                                          <option value="غزنی">غزنی</option>
-                                          <option value="مزار شریف">مزار شریف</option>
-                                          <option value="قندهار">قندهار</option>
-                                          <option value="میدان وردک">میدان وردک</option>
-                                          <option value="بامیان">بامیان</option>
-                                      </select>
+                                  <label for="">شهر</label>
+                                  <select id="" class="form-control" v-model="city" name="city">
+                                      <option value="">انتخاب کنید</option>
+                                      <option value="کابل">کابل</option>
+                                      <option value="هرات">هرات</option>
+                                      <option value="قندهار">قندهار</option>
+                                      <option value="بلخ">بلخ</option>
+                                      <option value="ننگرهار">ننگرهار</option>
+                                      <option value="کندز">کندز</option>
+                                      <option value="تخار">تخار</option>
+                                      <option value="بدخشان">بدخشان</option>
+                                      <option value="پروان">پروان</option>
+                                      <option value="کاپیسا">کاپیسا</option>
+                                      <option value="لوگر">لوگر</option>
+                                      <option value="وردک">وردک</option>
+                                      <option value="پکتیا">پکتیا</option>
+                                      <option value="پکتیکا">پکتیکا</option>
+                                      <option value="خوست">خوست</option>
+                                      <option value="لغمان">لغمان</option>
+                                      <option value="نورستان">نورستان</option>
+                                      <option value="کنر">کنر</option>
+                                      <option value="بامیان">بامیان</option>
+                                      <option value="دایکندی">دایکندی</option>
+                                      <option value="غور">غور</option>
+                                      <option value="فراه">فراه</option>
+                                      <option value="نیمروز">نیمروز</option>
+                                      <option value="هلمند">هلمند</option>
+                                      <option value="زابل">زابل</option>
+                                      <option value="ارزگان">ارزگان</option>
+                                      <option value="سرپل">سرپل</option>
+                                      <option value="سمنگان">سمنگان</option>
+                                      <option value="جوزجان">جوزجان</option>
+                                      <option value="فاریاب">فاریاب</option>
+                                      <option value="بغلان">بغلان</option>
+                                      <option value="غزنی">غزنی</option>
+                                      <option value="پنجشیر">پنجشیر</option>
+                                  </select>
                                 </div>
                               </div>
-
+                              
                               <input type="text" style="position:absolute;display:none;" v-bind:value="category.id" name="category_id" id="category">
                                  
                               <div class="col-lg-10" style="float: right;">
@@ -31,7 +57,7 @@
                                       <input class="form-check-input" type="checkbox">                                      
                                 </div>
                               </div>
-
+                            
 
                               <div class="col-lg-12" style="float: right;">
                                 <div class="form-group">
@@ -46,46 +72,29 @@
                              <div class="col-lg-12" style="float: right;">
                                 <div class="form-group">
                                     <label for="">سازنده</label>
-                                    <select name="maker" id="brand" v-model="maker" class="form-control" >
-                                        <option value="">انتخاب کنید</option>
-                                        <option value="Toyota">تویوتا (Toyota)</option>
-                                        <option value="Honda">هوندا (Honda)</option>
-                                        <option value="Nissan">نیسان (Nissan)</option>
-                                        <option value="Mazda">مزدا (Mazda)</option>
-                                        <option value="Suzuki">سوزوکی (Suzuki)</option>
-                                        <option value="Hyundai">هیوندای (Hyundai)</option>
-                                        <option value="Kia">کیا (Kia)</option>
-                                        <option value="Mitsubishi">میتسوبیشی (Mitsubishi)</option>
-                                        <option value="Subaru">سوبارو (Subaru)</option>
-                                        <option value="Ford">فورد (Ford)</option>
-                                        <option value="Chevrolet">شورولت (Chevrolet)</option>
-                                        <option value="Mercedes-Benz">مرسدس بنز (Mercedes-Benz)</option>
-                                        <option value="BMW">بی‌ام‌و (BMW)</option>
-                                        <option value="Volkswagen">فولکس‌واگن (Volkswagen)</option>
-                                        <option value="Peugeot">پژو (Peugeot)</option>
-                                        <option value="Renault">رنو (Renault)</option>
-                                        <option value="Lexus">لکسوس (Lexus)</option>
-                                        <option value="Changan">چانگان (Changan)</option>
-                                        <option value="Geely">جیلی (Geely)</option>
-                                        <option value="Great Wall">گریت‌وال (Great Wall)</option>
-                                    </select>
+                                      <div class="col-lg-12" style="float: right;">
+                                          <div class="form-group">
+                                              <label for="">سازنده</label>
+                                              <input type="text" name="maker" v-model="maker" class="form-control" placeholder="نام سازنده را وارد کنید">
+                                          </div>
+                                      </div>
                                 </div>
                                 </div>
 
                                 <div class="col-lg-4" style="float: right;margin-top: 22px;">
                                 <div class="form-group">
                                   <label for="">قیمت(افغانی)</label>
-                                      <select name="price" id="" class="form-control" >
-                                          <option value="0">قیمت مورد نظر</option>
-                                          <option value="1">مجانی</option>
-                                          <option value="2">توافقی(تماس بگیرید)</option>
-                                    </select>                                     
+                                    <select name="price" class="form-control" v-model="selectedPriceOption">
+                                      <option value="0">قیمت مورد نظر</option>
+                                      <option value="1">مجانی</option>
+                                      <option value="2">توافقی (تماس بگیرید)</option>
+                                    </select>                          
                                 </div>
                               </div>
 
                                <div class="col-lg-8" style="float: left;margin-top: 49px;">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" disabled v-model="price" name="fee" value="">
+                                   <input type="text" class="form-control" v-model="price" name="fee" :disabled="selectedPriceOption != 0">
                                 </div>
                               </div>
 

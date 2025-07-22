@@ -20,10 +20,17 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+
+        'mobile',
+        'code',
+        'status',
         'name',
         'email',
         'password',
+
     ];
+
+    protected $primaryKey = "u_id";
 
     /**
      * The attributes that should be hidden for serialization.
@@ -51,7 +58,11 @@ class User extends Authenticatable
     public function Advert(){
         return $this->hasMany(Advert::class);
     }
-    public function Chat(){
-        return $this->belongsToMany(Chat::class);
+    public function messages(){
+        return $this->hasMany(Chat::class,'user_id');
     }
+
+    // public function Chat(){
+    //     return $this->belongsToMany(Chat::class);
+    // }
 }
